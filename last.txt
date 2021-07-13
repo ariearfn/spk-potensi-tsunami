@@ -1,0 +1,18 @@
+ <?php
+    if(if(isset($_POST['Submit'])){
+    $DGB=myaddslashes($_POST['DGB']);
+    $JS=myaddslashes($_POST['JS']);
+    $K=myaddslashes($_POST['K']);
+    $M=myaddslashes($_POST['M']);
+    $lat=myaddslashes($_POST['lat']);
+    $lng=myaddslashes($_POST['lng']);
+    $lab=myaddslashes($_POST['Label']);
+    $Submit=mysqli_query($mysqli,"INSERT INTO tb_input VALUES ('','$DGB','$JS','$K','$M','$lat','$lng','$lab')");
+    if($Submit){
+    echo "<p class='alert alert-success'>Data Berhasil Di Simpan</p>";
+    }else{
+    echo "<p class='alert alert-danger'>Data Gagal Di SImpan</p>";
+    }
+    echo "<script>document.location='nbc.php'</script>";
+    })
+  ?>

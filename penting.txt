@@ -1,0 +1,65 @@
+var marker;
+    function initialize() {
+    
+    // Variabel untuk menyimpan informasi(desc)
+    var info Window = new google.maps.InfoWindow({
+    content: contentString
+});
+    
+    // Variabel untuk menyimpan peta Roadmap
+    var mapOptions = {
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    // Pembuatan petanya
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    // Variabel untuk menyimpan batas koordinat
+    var bounds = new google.maps.LatLngBounds();
+
+     // Pengambilan data dari database
+     <?php
+    $query = mysqli_query($mysqli, "SELECT * FROM tb_input");
+    if(mysqli_num_rows($query)<1){?>
+        // peta tanpa marker-2.5446949,118.3207873,5.29z
+    var properti_peta= {
+            center: new.google.maps.LatLng(-2.5446949,118.3207873),
+            zoom: 7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+        var peta = new google.maps.Map(document.getElementById("map"),properti_peta);
+    // end
+
+    <?php
+            }else{
+            while ($data = mysqli_fetch_array($query))
+            {
+                $latitude = $data['Latitude'];
+                $longitude = $data['Longitude'];
+                echo ("addMarker($latitude, $longitude, '<b>$DGB</b>');");             
+            }
+            }
+    ?>
+     // Proses membuat marker
+     function addMarker(lat, lng, info) {
+            var lokasi = new google.maps.LatLng(latitude, longitude);
+            bounds.extend(lokasi);
+            var marker = new google.maps.Marker({
+                map: map,
+                 position: lokasi,
+             
+            });     
+            map.fitBounds(bounds);
+            bindInfoWindow(marker, map, infoWindow, info);
+         }
+        
+     // Menampilkan informasi pada masing-masing marker yang diklik
+     function bindInfoWindow(marker, map, infoWindow, html) {
+          google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(html);
+            infoWindow.open(map, marker);
+          });
+        }
+        
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);

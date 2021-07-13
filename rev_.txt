@@ -1,0 +1,31 @@
+       <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>Daerah Gempa Bumi</th>
+                        <th>Jenis Sesar</th>
+                        <th>Kedalaman(Km)</th>
+                        <th>Magnitudo(SR)</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Label</th>
+                        <th>Aksi</th>
+                      </tr> 
+                    </thead>
+                
+                    <tbody>
+                      <tr>
+                      <?php 
+                        while($res = mysqli_fetch_array($result)) {     
+                        echo "<tr>";
+                        echo "<td>".$res['DGB']."</td>";
+                        echo "<td>".$res['			']."</td>"; 
+                        echo "<td>".$res['K']."</td>";
+                        echo "<td>".$res['M']."</td>";
+                        echo "<td>".$res['Latitude']."</td>";
+                        echo "<td>".$res['Longitude']."</td>";
+                        echo "<td>".$res['Label']."</td>";
+                        }
+                        ?>
+                      </tr>
+                    </tbody>
+                  </table>
