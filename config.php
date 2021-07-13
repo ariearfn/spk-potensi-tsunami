@@ -13,10 +13,10 @@ $conn = mysql_connect("localhost","root","root")
  * using mysqli_connect instead
  */
 
-$databaseHost = 'localhost';
-$databaseName = 'potensi_tsunami';
-$databaseUsername = 'root';
-$databasePassword = '';
+$databaseHost = 'us-cdbr-east-04.cleardb.com';
+$databaseName = 'heroku_2f32cb7017953a3';
+$databaseUsername = 'b29823d365feca';
+$databasePassword = 'a4fad20e';
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
 
