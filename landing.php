@@ -69,7 +69,7 @@ include 'fungsi.php';
       </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" tabindex="-1" data-toggle="modal" data-target="#edit-profil" id="<?php echo $row["id"]; ?>" href="#">Edit Profil</a>
-            <a class="dropdown-item" tabindex="-1" href="#">Ubah Password</a>
+            <a class="dropdown-item" tabindex="-1" href="password_user.php">Ubah Password</a>
             <a class="dropdown-item" tabindex="-1" href="logout.php">Keluar</a>
             <!-- <div class="dropdown-divider"></div>
             <a class="dropdown-item" tabindex="-1" href="#">Separated link</a> -->
